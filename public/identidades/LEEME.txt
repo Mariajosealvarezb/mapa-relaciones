@@ -1,0 +1,15 @@
+IMÁGENES DE IDENTIDAD (Pregunta 3)
+==================================
+
+Estas 4 imágenes son PLACEHOLDERS temporales (copias de prueba).
+Reemplázalas por las fotos reales, manteniendo EXACTAMENTE estos nombres:
+
+  identidad-1.jpg  →  Mujer sola en la suite (bata, rosas, champán)
+  identidad-2.jpg  →  Pareja en pasión junto a la piscina
+  identidad-3.jpg  →  La boda (novia y novio en el altar)
+  identidad-4.jpg  →  Pareja con cariño en la mesa del café
+
+El orden importa: cada imagen lleva ligada una frase oculta que se devuelve
+en La Cima del mapa (ver lib/encuesta-config.ts → IDENTIDADES).
+
+Formato recomendado: vertical (relación 4:5), buena resolución, .jpg

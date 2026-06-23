@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/* ===========================================================
+   SISTEMA DE DISEÑO — Marca MJAB
+   Blanco y negro, editorial y premium, mucho espacio en blanco.
+   Tipografías: Playfair Display (títulos) · Inter (texto/botones)
+   =========================================================== */
+
+@theme {
+  /* Colores de marca */
+  --color-paper: #ffffff;   /* fondo */
+  --color-ink: #000000;     /* texto y botones */
+  --color-muted: #6b6b6b;   /* texto secundario */
+  --color-line: #e7e5e1;    /* líneas y bordes sutiles */
+  --color-soft: #f6f5f2;    /* fondos suaves (tarjetas) */
+
+  /* Tipografías (las variables las inyecta next/font en el <html>) */
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Siempre claro: esta marca es blanco sobre negro, sin modo oscuro */
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  /* Evita que el contenido quede pegado a los bordes de notch en iPhone */
+  min-height: 100dvh;
+}
+
+/* Selección de texto en tono de marca */
+::selection {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Títulos editoriales */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Respeta a quien prefiere menos movimiento (accesibilidad) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Animaciones suaves reutilizables */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease both;
+}
+
+/* El sendero del mapa crece de abajo hacia arriba */
+@keyframes growUp {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.animate-grow-up {
+  animation: growUp 1.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: bottom center;
+}
+
+/* Destellos dorados de la cima (cielo que celebra) */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.08;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.1);
+  }
+}
+
+/* Oculta la barra de scroll en el visor del mapa (estética limpia) */
+.sin-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.sin-scrollbar::-webkit-scrollbar {
+  display: none;
+}
