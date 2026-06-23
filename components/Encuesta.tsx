@@ -12,7 +12,6 @@ import {
   NOMBRES_MEMBRESIA,
   INTENTADO,
   VALOR_RECURRENTE,
-  LISTA_OPCIONES,
   PRECIOS,
   PREGUNTAS,
   CONSENTIMIENTO_TEXTO,
@@ -22,7 +21,7 @@ import {
   type Opcion,
 } from "@/lib/encuesta-config";
 
-const TOTAL = 11;
+const TOTAL = 10;
 
 type Answers = {
   nombre: string;
@@ -37,7 +36,6 @@ type Answers = {
   voz_cliente: string;
   intentado: string[];
   valor_recurrente: string[];
-  lista: "" | "si" | "no";
   precio: string;
 };
 
@@ -54,7 +52,6 @@ const VACIO: Answers = {
   voz_cliente: "",
   intentado: [],
   valor_recurrente: [],
-  lista: "",
   precio: "",
 };
 
@@ -122,9 +119,7 @@ export default function Encuesta() {
       case 8:
         return true; // opcional (multi)
       case 9:
-        return a.lista !== ""; // requerido: sí o no
-      case 10:
-        return true; // opcional / saltable
+        return true; // opcional / saltable (precio)
       default:
         return false;
     }
@@ -173,7 +168,7 @@ export default function Encuesta() {
         voz_cliente: a.voz_cliente,
         intentado: a.intentado,
         valor_recurrente: a.valor_recurrente,
-        lista_prioritaria: a.lista === "si",
+        lista_prioritaria: false,
         precio: a.precio,
         ...fuente.current,
       };
@@ -466,20 +461,8 @@ export default function Encuesta() {
           </Pregunta>
         );
 
-      // P10 · Lista prioritaria (Sí/No, auto-avance)
+      // P11 · Precio (opcional / saltable) — ahora es la última pregunta
       case 9:
-        return (
-          <Pregunta titulo={PREGUNTAS.p10.titulo}>
-            <ListaOpciones
-              opciones={LISTA_OPCIONES}
-              valor={a.lista}
-              onSelect={(k) => elegirYAvanzar("lista", k as Answers["lista"])}
-            />
-          </Pregunta>
-        );
-
-      // P11 · Precio (opcional / saltable)
-      case 10:
         return (
           <Pregunta titulo={PREGUNTAS.p11.titulo} sub={PREGUNTAS.p11.sub}>
             <ListaOpciones

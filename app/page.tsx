@@ -19,7 +19,7 @@ export default function Home() {
       {/* Contenido central */}
       <section className="flex-1 flex flex-col items-center justify-center text-center max-w-md mx-auto py-12">
         <p className="animate-fade-in text-xs tracking-[0.25em] uppercase text-muted mb-6">
-          Un mapa para volver a ti
+          Co-creando la membresía
         </p>
 
         <h1 className="animate-fade-in-up font-display text-4xl sm:text-5xl leading-[1.1] text-ink">
@@ -27,11 +27,10 @@ export default function Home() {
         </h1>
 
         <p className="animate-fade-in-up text-muted text-base leading-relaxed mt-6">
-          Lo que tienes enfrente no es un test más. Es un mapa. Tu mapa. En los
-          próximos minutos vas a reconocer algo que quizá ya sentías, pero no
-          habías podido nombrar: por qué te pasa lo que te pasa en el amor. Te
-          adelanto el destino, para que no te asustes en el camino: esto no se
-          trata de él. Se trata de ti.
+          Gracias por ser parte de la creación de esta membresía. A continuación
+          podrás contarme cómo vives hoy el amor y tus relaciones, y ayudarme a
+          elegir algunos elementos de esta nueva etapa: nombre, contenido y
+          mensaje. Al terminar, recibes tu mapa personalizado para volver a ti.
         </p>
 
         <Link
