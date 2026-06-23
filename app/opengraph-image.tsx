@@ -13,8 +13,8 @@ export default function OpengraphImage() {
         style={{
           width: "100%",
           height: "100%",
-          background: "#ffffff",
-          color: "#000000",
+          background: "#f8f8f6",
+          color: "#540b14",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -28,7 +28,7 @@ export default function OpengraphImage() {
             fontSize: 26,
             letterSpacing: 10,
             textTransform: "uppercase",
-            color: "#6b6b6b",
+            color: "#7d6960",
             marginBottom: 36,
           }}
         >
@@ -37,7 +37,7 @@ export default function OpengraphImage() {
         <div style={{ fontSize: 70, fontWeight: 600, lineHeight: 1.1 }}>
           ¿Cómo se ve el amor cuando te eliges a ti?
         </div>
-        <div style={{ fontSize: 30, color: "#6b6b6b", marginTop: 40 }}>
+        <div style={{ fontSize: 30, color: "#7d6960", marginTop: 40 }}>
           Tu mapa para dejar de depender y volver a ti
         </div>
       </div>

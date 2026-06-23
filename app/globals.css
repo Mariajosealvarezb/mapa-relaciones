@@ -1,30 +1,30 @@
 @import "tailwindcss";
 
 /* ===========================================================
-   SISTEMA DE DISEÑO — Marca MJAB
-   Blanco y negro, editorial y premium, mucho espacio en blanco.
+   SISTEMA DE DISEÑO — Marca MJAB · Mapa de Relaciones
+   Paleta cálida: crema, vino y taupe. Editorial y premium.
    Tipografías: Playfair Display (títulos) · Inter (texto/botones)
    =========================================================== */
 
 @theme {
-  /* Colores de marca */
-  --color-paper: #ffffff;   /* fondo */
-  --color-ink: #000000;     /* texto y botones */
-  --color-muted: #6b6b6b;   /* texto secundario */
-  --color-line: #e7e5e1;    /* líneas y bordes sutiles */
-  --color-soft: #f6f5f2;    /* fondos suaves (tarjetas) */
+  /* Colores de marca (paleta de relaciones) */
+  --color-paper: #f8f8f6;   /* fondo claro */
+  --color-ink: #540b14;     /* vino: texto, botones y fondo del mapa */
+  --color-muted: #7d6960;   /* taupe: texto secundario */
+  --color-line: #ccc0b2;    /* beige: líneas y bordes sutiles */
+  --color-soft: #f1ece5;    /* crema suave: fondos de tarjetas (derivado) */
 
   /* Tipografías (las variables las inyecta next/font en el <html>) */
   --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
-/* Siempre claro: esta marca es blanco sobre negro, sin modo oscuro */
+/* Marca cálida sobre crema, sin modo oscuro */
 html {
   background: var(--color-paper);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
@@ -38,8 +38,8 @@ body {
 
 /* Selección de texto en tono de marca */
 ::selection {
-  background: #000000;
-  color: #ffffff;
+  background: #540b14;
+  color: #f8f8f6;
 }
 
 /* Títulos editoriales */
