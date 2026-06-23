@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { guardarRespuesta } from "@/lib/storage";
 import { enviarCorreoMapa } from "@/lib/email";
-import { TABLA } from "@/lib/supabase";
 import type {
   Respuesta,
   IdentidadKey,
@@ -17,53 +16,6 @@ import type {
 export const runtime = "nodejs";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-// ---- DIAGNÓSTICO TEMPORAL (borrar después) ----
-export async function GET() {
-  const url = process.env.SUPABASE_URL || "";
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
-  const diag: Record<string, unknown> = {
-    urlSet: !!url,
-    urlLen: url.length,
-    urlStart: url.slice(0, 18),
-    urlEnd: url.slice(-12),
-    keySet: !!key,
-    keyLen: key.length,
-    tabla: TABLA,
-    resendSet: !!process.env.RESEND_API_KEY,
-    appUrl: process.env.APP_URL || "",
-  };
-  try {
-    const reg = await guardarRespuesta({
-      nombre: "DIAG",
-      correo: "diag@ejemplo.com",
-      consentimiento: true,
-      identidad: "1",
-      dolor: "d1",
-      dolor_otro: "",
-      unica_cosa: "a",
-      unica_cosa_otro: "",
-      nombre_membresia: "a",
-      voz_cliente: "",
-      intentado: [],
-      valor_recurrente: [],
-      lista_prioritaria: false,
-      precio: "",
-      utm_source: "",
-      utm_medium: "",
-      utm_campaign: "",
-      utm_content: "",
-      utm_term: "",
-      referrer: "",
-    });
-    diag.insert = "ok";
-    diag.id = reg.id;
-  } catch (e) {
-    diag.insert = "error";
-    diag.error = e instanceof Error ? e.message : String(e);
-  }
-  return NextResponse.json(diag);
-}
 
 function texto(v: unknown, max = 4000): string {
   return typeof v === "string" ? v.trim().slice(0, max) : "";
